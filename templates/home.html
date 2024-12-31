@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Enter Data for Prediction</h2>
+        <form action="/predictdata" method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" class="form-control" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ethnicity">Race/Ethnicity</label>
+                <input type="text" id="ethnicity" name="ethnicity" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="parental_level_of_education">Parental Level of Education</label>
+                <input type="text" id="parental_level_of_education" name="parental_level_of_education" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lunch">Lunch</label>
+                <select id="lunch" name="lunch" class="form-control" required>
+                    <option value="standard">Standard</option>
+                    <option value="free/reduced">Free/Reduced</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="test_preparation_course">Test Preparation Course</label>
+                <select id="test_preparation_course" name="test_preparation_course" class="form-control" required>
+                    <option value="none">None</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="writing_score">Writing Score</label>
+                <input type="number" id="writing_score" name="writing_score" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reading_score">Reading Score</label>
+                <input type="number" id="reading_score" name="reading_score" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+
+        {% if results is defined %}
+        <div class="alert alert-success mt-4" role="alert">
+            <h4 class="alert-heading">Prediction Result</h4>
+            <p>The predicted value is: <strong>{{ results }}</strong></p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
